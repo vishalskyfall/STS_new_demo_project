@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ <!--  <script type="text/javascript">
+  function confirmation(){
+	    var result = confirm("Are you sure to delete?");
+	    if(result){
+	        // Delete logic goes here
+	    }
+	}
+  </script> -->
+<title>Insert title here</title>
+</head>
+<body>
+ <header th:insert="general.html :: header"> </header>
+<div class="container">
+  <h2>Phone Directory</h2>
+  <br>
+  <a th:href="@{/index}"> <button type="button" class="btn btn-info text-white">Add new</button></a>
+  <br><br><div class="text-success" th:text="${msg}"></div><hr>
+<table border="1" style="border-collapse: collapse;"  class="table  table-hover"><!--  table-dark -->
+<thead>
+      <tr>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+<tr th:each="u:${list}">
+<td th:text="${u.name}"/>
+<td th:text="${u.number}"/>
+<td th:text="${u.email}"/>
+<td class="text-danger"><a th:href="${'/edit/'+u.id}"><button type="button" class="btn btn-primary text-white">Edit</button></a></td>
+<td><a th:href="${'/delete/'+u.id}"><button type="button" class="btn btn-danger text-white" onclick="return confirm('Are you sure you want to delete this item?');">Delete</button></a></td>
+</tr></tbody>
+</table>
+</div>
+<div th:replace="general.html :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:fragment="formdata">
+		<form action="#" th:action="@{/insertData}" method="post" class="form">
+			<!-- <table>
+		<tr><td> -->
+			<input type="hidden" name="id" th:value="${uservo.id}"> 
+			<label class="mb-2 mr-sm-2">Name:</label> <input
+				class="form-control mb-2 mr-sm-2" type="text" name="name"
+				th:value="${uservo.name}"> <br> <label
+				class="mb-2 mr-sm-2">Number:</label> <input
+				class="form-control mb-2 mr-sm-2" type="text" name="number"
+				th:value="${uservo.number}">
+			<div style="color: red" th:if="${val.numbererror}">Add Valid
+				Number</div>
+			<label class="mb-2 mr-sm-2">Email:</label> <input
+				class="form-control mb-2 mr-sm-2" type="text" name="email"
+				th:value="${uservo.email}"> <br>
+			<div style="color: red" th:if="${val.emailerror}">Add Valid
+				Email</div>
+			<input type="submit" value="Submit"></form>
+		</div>
+
+		
+		<footer th:fragment="footer">
+			<br><hr>
+			<p class="text-center bg-dark text-white">@copyright
+				vishal.brahmbhatt.1092</p>
+		</footer>
+		
+		<header th:fragment="header">
+	<!-- about us part -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+      </li>
+    
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"   id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Edit???
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#" th:href="@{/index}">Insert</a>
+          <a class="dropdown-item" href="#" th:href="@{/showList}">Table</a>
+          <div class="dropdown-divider"></div>
+         
+        </div>
+      </li>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<br><hr>
+</header>
+		
+		
+		
+	
+</body>
+</html>
